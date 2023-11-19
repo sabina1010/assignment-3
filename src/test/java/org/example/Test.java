@@ -118,7 +118,7 @@ public void admin()throws Exception{
     Thread.sleep(1000);
     driver.findElement(By.xpath("/html/body/div[1]/div[2]/ul[1]/li[6]/a")).click();
     WebElement title=driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/h1"));
-    Assert.assertEquals("Administration", title.getText());
+    Assert.assertFalse(("Administration".equals( title.getText())));
 }
     @org.junit.Test
     public void index() throws Exception{
@@ -142,7 +142,7 @@ public void admin()throws Exception{
     public void transferLoan() throws Exception{
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/ul[1]/li[3]/a")).click();
-        Assert.assertNotSame("https://parabank.parasoft.com/parabank/services/ParaBank?wsdl", driver.getCurrentUrl());
+        Assert.assertSame("https://parabank.parasoft.com/parabank/services/ParaBank?wsdl", driver.getCurrentUrl());
 
     }
     @AfterClass
